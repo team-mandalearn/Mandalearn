@@ -13,6 +13,7 @@ docker compose build
 ```
 
 3. バックエンド(Laravel環境設定)
+   
   a.  依存関係インストール
   ```bash
    cd backend/src
