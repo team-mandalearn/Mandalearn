@@ -13,12 +13,12 @@ docker compose build
 ```
 
 3. バックエンド(Laravel環境設定)
-  1.  依存関係インストール
+  a.  依存関係インストール
   ```bash
    cd backend/src
    composer install
   ```
-  2. .envファイルの作成
+  b. .envファイルの作成
   backend/srcのルートディレクトリに.envファイルを作成してください
   ※.env.exampleをコピーしてファイル名を.envにしてください
   .envファイル内の以下の項目を修正してください
@@ -30,7 +30,7 @@ docker compose build
   ```
 
 4. フロントエンド(Next.js環境構築)
-  1. 依存関係インストール
+  a. 依存関係インストール
   ```bash
   cd frontend/src
   npm init.  (色々と聞かれるけど、全てOKでいいはず)
@@ -38,17 +38,17 @@ docker compose build
   ```
 
 5. 稼働テスト
-  1. コンテナの起動
+  a. コンテナの起動
   ```bash
   docker compose up -d
   ```
-  2. バックエンド起動確認
+  b. バックエンド起動確認
   http://localhost:8080
-  3. フロントエンド起動確認
+  c. フロントエンド起動確認
   http://localhost:3000
-  4. phpMyAdmin起動確認
+  d. phpMyAdmin起動確認
   http://localhost:8081
-  5. フロントエンド、バックエンド通信確認
+  e. フロントエンド、バックエンド通信確認
   http://localhost:3000/test
   Mandalearn!!!!
   と出力されたらOKです。
