@@ -8,6 +8,7 @@ git clone https://github.com/team-mandalearn/Mandalearn.git
 
 2. Dockerコンテナ作成
 ```bash
+cd Mandalearn
 docker compose build
 ```
 
