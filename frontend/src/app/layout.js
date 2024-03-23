@@ -37,14 +37,25 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   const session = await getServerSession()
-  return (
-    <html lang="en">
-      <body className={`${josefin.variable} ${num.variable} ${inter.className}`}>
-        <SessionProvider session={session}>
-          <Header />
-          {children}
-        </SessionProvider>
-      </body>
-    </html>
-  );
+  if(session){
+    return (
+      <html lang="ja">
+        <body className={`${josefin.variable} ${num.variable} ${inter.className}`}>
+          <SessionProvider session={session}>
+            <Header/>
+            {children}
+          </SessionProvider>
+        </body>
+      </html>
+    )
+  }
+  return(
+    <html lang="ja">
+    <body className={`${josefin.variable} ${num.variable} ${inter.className}`}>
+      <SessionProvider session={session}>
+        {children}
+      </SessionProvider>
+    </body>
+  </html>
+  )
 }

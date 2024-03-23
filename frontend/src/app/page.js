@@ -10,14 +10,14 @@ export default async function Home() {
   const session = await getServerSession()
   if(!session || !session.user){
     return(
-      redirect("/api/auth/signin")
+      redirect("/login")
     )
   }
-  console.log(session)
   return (
     <main>
-      {session.user.name}
-      Home
+      home<br/>
+      home<br/>
+      home<br/>
     </main>
   );
 }

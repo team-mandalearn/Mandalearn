@@ -1,0 +1,71 @@
+.header{
+  height: 3rem;
+  width: 100vw;
+  background-color: #8c8c8c;
+  line-height: 3rem;
+  padding: 0 3rem;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1.5fr;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  &_logo{
+    font-family: var(--font-josefin);
+    font-size: 2rem;
+    line-height: 2rem;
+    display: flex;
+    align-items: center;
+  }
+
+  &_nav{
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    justify-content: space-around;
+
+    &_item{
+      display: flex;
+      align-items: center;
+    }
+
+    &_icon{
+      width: 2rem;
+      height: 2rem;
+      position: relative;
+
+      & img{
+        border-radius: 50%;
+      }
+    }
+
+    &_name{
+      padding-left: .5rem;
+    }
+
+  }
+
+  &_limit{
+    font-family: var(--font-num);
+    display: flex;
+    justify-content: right;
+    align-items: bottom;
+    font-size: 1.5rem;
+
+    &_title{
+      font-size: 1rem;
+      color: #ea4040;
+
+    }
+    &_timer{
+      padding-left: 1rem;
+    }
+  }
+
+  &_timer{
+    font-family: var(--font-num);
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+  }
+}
