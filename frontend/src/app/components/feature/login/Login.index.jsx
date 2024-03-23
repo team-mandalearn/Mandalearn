@@ -1,5 +1,7 @@
+import LoginForm from "@/app/components/feature/login/Login.form";
+
 export default function LoginIndex(){
   return(
-    <h1>Login</h1>
+    <LoginForm/>
   )
 }
