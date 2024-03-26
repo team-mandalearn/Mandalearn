@@ -25,8 +25,8 @@ Route::prefix('/auth')
 ->controller(AuthController::class)
 ->name('auth')
 ->group(function(){
-    Route::get('/register', 'store')->name('store');
-    Route::post('/login', 'index')->name('index');
+    Route::post('/register', 'register')->name('register');
+    Route::post('/login', 'login')->name('login');
 });
 
 Route::prefix('/reports')

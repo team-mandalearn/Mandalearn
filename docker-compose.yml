@@ -34,6 +34,8 @@ services:
    command: 'npm run dev'
    ports:
      - 3000:3000
+   networks:
+     - app-network
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: phpmyadmin
