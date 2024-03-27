@@ -1,0 +1,92 @@
+.curriculum_container {
+  width: 50%;
+  aspect-ratio: 1/1;
+  position: relative;
+  top: calc(50% - 8rem);
+  left: calc(50% - 5rem);
+  transform: translate(-50%, -50%);
+
+  & .curriculum_title{
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 2.2rem;
+    position: absolute;
+    top: 50%;
+    left: 8rem;
+    transform: translateY(calc(50% - 5rem));
+    clip-path: polygon(0 0,0% 0, 0% 100%, 0% 100%);
+  }
+
+  & .curriculum_center1 {
+    display: block;
+    width: 90%;
+    aspect-ratio: 1/1;
+    border: solid .1px white;
+    border-radius: 50%;
+    opacity: .2;
+    position: absolute;
+    top: calc(50% + 0rem);
+    left: calc(50% + 0rem);
+    transform: translate(-50%, -50%);
+    z-index: -1;
+  }
+
+  & .curriculum_center2 {
+    display: block;
+    width: 120%;
+    aspect-ratio: 1/1;
+    border: solid .1px white;
+    border-radius: 50%;
+    opacity: .3;
+    position: absolute;
+    top: calc(50% - 5rem);
+    left: calc(50% - 5rem);
+    z-index: -1;
+    animation: circle-move 10s infinite linear;
+  }
+
+  & .curriculum_center3 {
+    display: block;
+    width: 250%;
+    aspect-ratio: 1/1;
+    border: solid 10px white;
+    border-radius: 50%;
+    opacity: .02;
+    position: absolute;
+    top: calc(-50% - 5rem);
+    left: calc(50% - 5rem);
+    z-index: -1;
+    animation: circle-move 10s infinite linear;
+  }
+
+  @keyframes circle-move {
+    0% {
+      transform: rotate(0deg) translateX(10%) translateY(0%);
+    }
+
+    100% {
+      transform: rotate(360deg) translateX(10%) translateY(0%);
+    }
+  }
+
+  & .curriculum_item {
+    width: 5rem;
+    aspect-ratio: 1/1;
+    background: #DF8B74;
+    border-radius: 50%;
+    /* 円*/
+    text-align: center;
+    display: block;
+    position: absolute;
+
+    &_name {
+      font-size: .8rem;
+      line-height: 1rem;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+  }
+}
