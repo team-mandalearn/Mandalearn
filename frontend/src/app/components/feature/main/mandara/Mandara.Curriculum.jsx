@@ -14,18 +14,21 @@ import Link from "next/link";
 export default function MandaraCurriculum() {
   const [rad, setRad] = useState()
   const [r, setR] = useState()
+  const [radOffset, setRadOffset] = useState()
   const curriculums = useContext(CurriculumContext)
   useLayoutEffect(() => {
-    const container = document.querySelector('#curriculum_container')
+    const container = document.querySelector('#curriculum_container');
     if (container) {
-      const curriculum_num = curriculums.length
-      const r = container.clientWidth / 2
-      const deg = 360.0 / curriculum_num
-      const rad = (deg * Math.PI / 180.0)
-      setRad(rad)
-      setR(r)
+      const curriculum_num = curriculums.length;
+      const deg = 360.0 / curriculum_num;
+      const r = container.clientWidth / 2;
+      const radOffset = -Math.PI / 2;
+      const rad = deg * Math.PI / 180.0;
+      setRad(rad);
+      setR(r);
+      setRadOffset(radOffset);
     }
-  }, [])
+  }, []);
 
   return (
     <div id='curriculum_container' className={styles.curriculum_container}>
@@ -39,9 +42,9 @@ export default function MandaraCurriculum() {
         ENGINEER<br />
       </motion.h1>
       {curriculums.map((item, index) => {
-        const x = Math.cos(rad * index) * r + r
-        const y = Math.sin(rad * index) * r + r
-
+        const x = Math.cos(rad * index + radOffset) * r + r;
+        const y = Math.sin(rad * index + radOffset) * r + r;
+        console.log(x)
         return (
           <motion.div
             className={styles.curriculum_item}
