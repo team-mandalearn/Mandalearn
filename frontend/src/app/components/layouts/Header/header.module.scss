@@ -57,7 +57,25 @@
 
     }
     &_timer{
+      width: 6rem;
       padding-left: 1rem;
+      font-weight: 700;
+
+      &_alart{
+        color: #ea4040;
+        animation: alart_text .5s infinite ease-in-out;
+      }
+
+      @keyframes alart_text {
+        0%{
+          color: white;
+          font-size: 1.95rem;
+        }
+        100%{
+          color: #ea4040;
+          font-size: 2rem;
+        }
+      }
     }
   }
 
