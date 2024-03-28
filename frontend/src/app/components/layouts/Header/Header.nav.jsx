@@ -1,8 +1,8 @@
 "use client"
-import { signIn, signOut, useSession } from "next-auth/react"
-import styles from "./header.module.scss"
 import Link from "next/link"
 import Image from "next/image"
+import { signIn, signOut, useSession } from "next-auth/react"
+import styles from "./header.module.scss"
 
 export default function HeaderNav() {
   const { data: session } = useSession()

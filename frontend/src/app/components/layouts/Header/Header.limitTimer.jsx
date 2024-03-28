@@ -1,15 +1,22 @@
 "use client"
 
-import { useEffect, useLayoutEffect, useState } from "react";
-import styles from "./header.module.scss"
 import { useTimer } from 'react-timer-hook';
 
-export default function HeaderLimitTimer() {
+import styles from "./header.module.scss"
+
+export default function HeaderLimitTimer({ user }) {
+  let limitTime = user.post_schedule
+  if (limitTime) {
+    limitTime = limitTime.split(":")
+  } else {
+    limitTime = [0, 0, 0]
+  }
+
   const now = new Date()
   const setTimer = () => {
     const nextScheduledTime = new Date()
     nextScheduledTime.setDate(now.getDate() + 1)
-    nextScheduledTime.setHours(21, 23, 0, 0)
+    nextScheduledTime.setHours(limitTime[0], limitTime[1], limitTime[2], 0)
     const timeRemaining = nextScheduledTime.getTime() - now.getTime()
     return timeRemaining
   }
@@ -33,6 +40,7 @@ export default function HeaderLimitTimer() {
       restart(now.getTime() + timeRemaining);
     }
   })
+
   const formattedHours = hours.toString().padStart(2, '0');
   const formattedMinutes = minutes.toString().padStart(2, '0');
   const formattedSeconds = seconds.toString().padStart(2, '0');
