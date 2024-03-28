@@ -1,4 +1,3 @@
-import MandaraCircle from "@/app/components/feature/main/mandara/Mandara.circle";
 import styles from "./mandara.module.scss"
 import MandaraCurriculum from "@/app/components/feature/main/mandara/Mandara.Curriculum";
 import { createContext } from "react";
