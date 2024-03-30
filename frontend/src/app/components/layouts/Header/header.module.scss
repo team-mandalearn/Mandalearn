@@ -1,4 +1,4 @@
-.header{
+.header {
   height: 3rem;
   width: 100vw;
   background-color: #8c8c8c;
@@ -9,9 +9,9 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 10000;
 
-  &_logo{
+  &_logo {
     font-family: var(--font-josefin);
     font-size: 2rem;
     line-height: 2rem;
@@ -19,54 +19,84 @@
     align-items: center;
   }
 
-  &_nav{
+  &_nav {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr;
     justify-content: space-around;
 
-    &_item{
+    &_item {
       display: flex;
       align-items: center;
     }
 
-    &_icon{
+    &_icon {
       width: 2rem;
       height: 2rem;
       position: relative;
 
-      & img{
+      & img {
         border-radius: 50%;
       }
     }
 
-    &_name{
+    &_name {
       padding-left: .5rem;
     }
-
   }
 
-  &_limit{
+  &_limit {
     font-family: var(--font-num);
     display: flex;
     justify-content: right;
     align-items: bottom;
     font-size: 1.5rem;
 
-    &_title{
+    &_title {
       font-size: 1rem;
       color: #ea4040;
 
     }
-    &_timer{
+
+    &_timer {
       padding-left: 1rem;
     }
   }
 
-  &_timer{
+  &_timer {
+    height: 2.5rem;
     font-family: var(--font-num);
-    font-size: 2.5rem;
+    font-size: 2rem;
+    letter-spacing: .1rem;
+    margin: auto 0 auto 3rem;
+    padding: 0 3rem;
     display: flex;
     align-items: center;
-    justify-content: right;
+    justify-content: space-between;
+    background-color: #fff;
+    border-radius: 3rem;
+
+    &_button {
+      display: block;
+      width: 2rem;
+      aspect-ratio: 1/1;
+      position: relative;
+      padding-right: 2rem;
+
+      &_play {
+        display: block;
+        width: 100%;
+        aspect-ratio: 1/1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-40%, -50%);
+      }
+    }
+
+    &_disp{
+      margin-left: 3rem;
+      color: #8c8c8c;
+      font-weight: bold;
+    }
   }
 }

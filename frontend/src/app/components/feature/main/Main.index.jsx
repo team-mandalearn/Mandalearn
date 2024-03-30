@@ -1,5 +1,5 @@
 "use client"
-import MainTest from "@/app/components/feature/main/Main.test";
+
 import styles from "./main.module.scss"
 import MandaraIndex from "@/app/components/feature/main/mandara/Mandara.index";
 

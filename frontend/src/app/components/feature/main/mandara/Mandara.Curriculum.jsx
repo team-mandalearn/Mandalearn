@@ -44,7 +44,6 @@ export default function MandaraCurriculum() {
       {curriculums.map((item, index) => {
         const x = Math.cos(rad * index + radOffset) * r + r;
         const y = Math.sin(rad * index + radOffset) * r + r;
-        console.log(x)
         return (
           <motion.div
             className={styles.curriculum_item}
