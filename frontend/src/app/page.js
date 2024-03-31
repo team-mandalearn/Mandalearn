@@ -1,7 +1,9 @@
 import Image from "next/image";
 import { getServerSession } from "next-auth"
 import { redirect } from "next/navigation";
+
 import MainIndex from "@/app/components/feature/main/Main.index";
+import Header from "@/app/components/layouts/Header/Header";
 import MotionWrapper from "@/app/components/utils/MotionWrapper";
 
 export const metadata = {
@@ -16,10 +18,14 @@ export default async function Home() {
     )
   }
   return (
-    <MotionWrapper>
-      <main>
-        <MainIndex />
-      </main>
-    </MotionWrapper>
+
+    <>
+      <Header />
+        <MotionWrapper>
+          <main>
+            <MainIndex />
+          </main>
+        </MotionWrapper>
+    </>
   );
 }

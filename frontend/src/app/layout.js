@@ -3,6 +3,7 @@ import "./globals.css";
 import { getServerSession } from "next-auth"
 import SessionProvider from "./components/utils/SessionProvider"
 import Header from "@/app/components/layouts/Header/Header";
+import GetUserInfo from "@/app/components/utils/GetUserInfo";
 
 
 
@@ -37,18 +38,6 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   const session = await getServerSession()
-  if(session){
-    return (
-      <html lang="ja">
-        <body className={`${josefin.variable} ${num.variable} ${inter.className}`}>
-          <SessionProvider session={session}>
-            <Header/>
-            {children}
-          </SessionProvider>
-        </body>
-      </html>
-    )
-  }
   return(
     <html lang="ja">
     <body className={`${josefin.variable} ${num.variable} ${inter.className}`}>
