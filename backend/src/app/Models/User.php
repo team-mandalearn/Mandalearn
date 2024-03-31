@@ -29,6 +29,11 @@ class User extends Authenticatable
     return $this->hasOne(Language::class);
   }
 
+  public function daily_logs()
+  {
+    return $this->hasMany(Daily_log::class);
+  }
+
   /**
    * The attributes that should be hidden for serialization.
    *

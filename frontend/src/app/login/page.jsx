@@ -21,7 +21,6 @@ export default async function Login() {
   }
   const res = await axios.post('http://localhost:3000/api/auth/login', email)
   const user = res.data
-  console.log(user.id)
   if (!user.id) {
     return (
       <RegisterIndex />

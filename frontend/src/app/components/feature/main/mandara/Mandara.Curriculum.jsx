@@ -44,15 +44,21 @@ export default function MandaraCurriculum() {
       {curriculums.map((item, index) => {
         const x = Math.cos(rad * index + radOffset) * r + r;
         const y = Math.sin(rad * index + radOffset) * r + r;
-        console.log(x)
         return (
           <motion.div
             className={styles.curriculum_item}
             initial={{ x: 0, y: 0, opacity: 0 }}
-            animate={{ x: x, y: y, opacity: item.percentage * 100 + .2 }}
+            animate={{ x: x, y: y, opacity: item.percentage / 100 + .2, scale: item.percentage / 100 + .3 }}
             transition={{ ease: [.91, 0, .19, 1], duration: .5 }}
+            whileHover={{
+              scale: 2,
+              transition: { type: "spring", stiffness: 1000, damping: 18 }
+            }}
+
             key={index}>
-            <Link href={`/curriculum/${item.name}`}>
+            <Link
+              href={`/curriculum/${item.name}`}
+            >
               <ProgressProvider valueStart={0} valueEnd={item.percentage}>
                 {value => <CircularProgressbar
                   value={value}
@@ -60,10 +66,10 @@ export default function MandaraCurriculum() {
                   styles={buildStyles({
                     stopLinecap: 'round',
                     pathTransitionDuration: 2,
-                    pathColor: `rgba(255, 102, 102, ${item.percentage / 100} )`,
-                    textColor: '#f88',
-                    trailColor: '#d6d6d6',
-                    backgroundColor: '#3e98c7'
+                    pathColor: `rgba(255, 255, 255, ${item.percentage / 100} )`,
+                    textColor: '#8c8c8c',
+                    trailColor: '#8c8c8c',
+                    backgroundColor: '#fff'
                   })}
                 />
                 }
