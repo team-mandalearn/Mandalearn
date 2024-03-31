@@ -1,9 +1,12 @@
+import { useContext } from "react"
 import { useForm, SubmitHandler } from "react-hook-form"
+import axios from "axios";
+
+import { stopWatchContext } from "@/app/components/layouts/Header/Header"
 
 import styles from "./post.module.scss"
-import { useContext } from "react"
-import { stopWatchContext } from "@/app/components/layouts/Header/Header"
-import axios from "axios";
+import { curriculums } from "@/app/components/utils/Curriculums";
+import { motion } from "framer-motion";
 
 export default function PostForm({ isDisp }) {
   const timerData = useContext(stopWatchContext);
@@ -16,8 +19,19 @@ export default function PostForm({ isDisp }) {
   } = useForm()
 
   const onSubmit = async (data) => {
-    console.log(data);
-    console.log(watch('time'))
+    const isConfirmed = confirm('Discordに投稿します!!\n本当に良いですか？')
+    if (isConfirmed) {
+      const inputData = {
+        time: watch('time'),
+        quest: watch('quest'),
+        comment: watch('comment')
+      }
+      const discordRes = await axios.post("http://localhost:3000/api/dailyLog/discord", inputData)
+      const backendRes = await axios.post('http://localhost:3000/api/dailyLog', inputData)
+      alert('OK')
+    } else {
+      alert('やーめた')
+    }
   }
 
   const saveHandler = async (e) => {
@@ -29,7 +43,7 @@ export default function PostForm({ isDisp }) {
     }
     const res = await axios.post('http://localhost:3000/api/dailyLog', inputData)
     const data = await res.data
-    console.log(data)
+    alert('一時保存できました！')
   }
 
   return (
@@ -58,11 +72,17 @@ export default function PostForm({ isDisp }) {
         <label className={styles.form_item_label}>
           Study Contents<span>学習内容</span>
         </label>
-        <input
-          type="text"
-          className={styles.form_item_input}
-          {...register("quest")}
-        />
+        <select {...register("quest")} className={styles.form_item_input}>
+          {
+            curriculums.map((curriculum, index) => {
+              return (
+                <option value={curriculum.name} key={index}>
+                  {curriculum.name}
+                </option>
+              )
+            })
+          }
+        </select>
       </div>
 
       <div className={styles.form_item}>
@@ -72,18 +92,26 @@ export default function PostForm({ isDisp }) {
         <textarea
           id="comment"
           cols="30"
-          rows="10"
+          rows="7"
           {...register("comment")}
         ></textarea>
       </div>
-      <button
+      <motion.button
+        whileHover={{
+          scale: 1.1,
+          transition: { type: "spring", stiffness: 400, damping: 10 }
+        }}
         className={styles.form_button}
       >
         POST
-      </button>
-      <button
+      </motion.button>
+      <motion.button
         className={styles.form_button}
-        onClick={saveHandler}>SAVE</button>
+        whileHover={{
+          scale: 1.1,
+          transition: { type: "spring", stiffness: 400, damping: 10 }
+        }}
+        onClick={saveHandler}>SAVE</motion.button>
     </form>
   )
 }
