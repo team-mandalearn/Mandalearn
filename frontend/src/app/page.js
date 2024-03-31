@@ -13,21 +13,21 @@ export const metadata = {
 
 export default async function Home() {
   const session = await getServerSession()
-  const user = await GetUserInfo()
   if (!session || !session.user) {
     return (
       redirect("/login")
     )
   }
+  const user = await GetUserInfo()
   return (
 
     <>
-      <Header user={user}/>
-        <MotionWrapper>
-          <main>
-            <MainIndex />
-          </main>
-        </MotionWrapper>
+      <Header user={user} />
+      <MotionWrapper>
+        <main>
+          <MainIndex />
+        </main>
+      </MotionWrapper>
     </>
   );
 }
