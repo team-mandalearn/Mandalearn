@@ -60,6 +60,7 @@ Route::prefix('/quests')
 ->name('quests')
 ->group(function(){
     Route::get('/','index')->name('index');
+    Route::get('/getquests/{curriculum}', 'getquests')->name('getquests');
 });
 
 Route::prefix('/timer')
