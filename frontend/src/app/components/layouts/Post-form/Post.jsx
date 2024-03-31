@@ -6,7 +6,7 @@ import Image from "next/image"
 import PostForm from "@/app/components/layouts/Post-form/Post.form";
 import styles from "./post.module.scss"
 
-export default function PostIndex({stopWatch}) {
+export default function PostIndex() {
   const [isDisp, setIsDisp] = useState(false)
   const buttonHandler = () => {
     setIsDisp(prev => !prev)
@@ -33,7 +33,7 @@ export default function PostIndex({stopWatch}) {
             style={{ fill: 'red' }}
           />
         </button>
-        <PostForm isDisp={isDisp} stopWatch={stopWatch}/>
+        <PostForm isDisp={isDisp}/>
       </div>
     </>
   )

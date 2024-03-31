@@ -16,8 +16,6 @@ export async function POST(req) {
     }
   }
 
-  console.log(post)
-
   const DAILY_URL = process.env.MANDALEARN_BASE_URL + "/reports"
   const res = await axios.post(DAILY_URL, post)
   const data = await res.data

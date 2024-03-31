@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import MainIndex from "@/app/components/feature/main/Main.index";
 import Header from "@/app/components/layouts/Header/Header";
 import MotionWrapper from "@/app/components/utils/MotionWrapper";
+import GetUserInfo from "@/app/components/utils/GetUserInfo";
 
 export const metadata = {
   title: 'MandaLearn'
@@ -12,6 +13,7 @@ export const metadata = {
 
 export default async function Home() {
   const session = await getServerSession()
+  const user = await GetUserInfo()
   if (!session || !session.user) {
     return (
       redirect("/login")
@@ -20,7 +22,7 @@ export default async function Home() {
   return (
 
     <>
-      <Header />
+      <Header user={user}/>
         <MotionWrapper>
           <main>
             <MainIndex />
