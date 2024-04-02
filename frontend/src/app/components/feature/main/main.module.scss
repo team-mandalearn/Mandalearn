@@ -28,4 +28,40 @@
     width: 100%;
     height: 100%;
   }
+
+  & .quests {
+    padding-top: 3rem;
+    grid-column: 2/3;
+    grid-row: 1/3;
+    width: 100%;
+    height: 100%;
+    //margin: auto;
+    border-radius: 10px;
+    //box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); // 影をつける
+    z-index: 1;
+  
+    a {
+      color: rgb(164, 214, 255); // リンクの色
+      //text-decoration: none; // リンクの下線を消す
+      &:hover {
+        text-decoration: underline; // ホバー時に下線を表示
+      }
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 0.25em;
+      //text-decoration: underline;
+    }
+    
+    ol > li {
+      font-size: 16px;
+      list-style-type: decimal;
+    }
+
+    ol > li > ol > li {
+      font-size: 14px;
+      margin-left: 30px;
+      list-style-type: lower-roman;
+    }
+  }
 }

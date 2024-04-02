@@ -11,7 +11,7 @@ import styles from "./mandara.module.scss"
 import 'react-circular-progressbar/dist/styles.css';
 import Link from "next/link";
 
-export default function MandaraCurriculum() {
+export default function MandaraCurriculum({ fetchMarkdown }) {
   const [rad, setRad] = useState()
   const [r, setR] = useState()
   const [radOffset, setRadOffset] = useState()
@@ -29,6 +29,11 @@ export default function MandaraCurriculum() {
       setRadOffset(radOffset);
     }
   }, []);
+
+  // // GithubのMarkdownを表示する関数のクリックイベントを定義
+  const handleCircleClick = (curriculumName) => {
+    fetchMarkdown(curriculumName); 
+  };
 
   return (
     <div id='curriculum_container' className={styles.curriculum_container}>
@@ -55,10 +60,9 @@ export default function MandaraCurriculum() {
               transition: { type: "spring", stiffness: 1000, damping: 18 }
             }}
 
+            onClick={() => handleCircleClick(item.name)} // クリックイベントを追加
             key={index}>
-            <Link
-              href={`/curriculum/${item.name}`}
-            >
+
               <ProgressProvider valueStart={0} valueEnd={item.percentage}>
                 {value => <CircularProgressbar
                   value={value}
@@ -77,7 +81,7 @@ export default function MandaraCurriculum() {
               <p className={styles.curriculum_item_name}>
                 {item.name}
               </p>
-            </Link>
+
           </motion.div>
         )
       })}
