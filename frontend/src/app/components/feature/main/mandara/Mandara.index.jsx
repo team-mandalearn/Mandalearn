@@ -4,6 +4,7 @@ import { createContext } from "react";
 
 export const CurriculumContext = createContext()
 
+
 export default function MandaraIndex({ fetchMarkdown }) {
   const php_curriculums = [
     { name: 'Linux', percentage: 90 },

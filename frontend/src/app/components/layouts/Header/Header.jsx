@@ -11,10 +11,8 @@ import PostIndex from "@/app/components/layouts/Post-form/Post";
 import { createContext } from "react";
 export const stopWatchContext = createContext()
 
-export default function Header() {
-  const user = {
-    post_schedule: "00:00:00"
-  }
+export default function Header({ user }) {
+
   const {
     totalSeconds,
     seconds,
@@ -49,7 +47,7 @@ export default function Header() {
           </Link>
         </h3>
         <HeaderNav />
-        <HeaderLimitTimer user={user}/>
+        <HeaderLimitTimer user={user} />
         <HeaderTimer stopWatch={stopWatch} />
       </div>
       <stopWatchContext.Provider value={stopWatch}>
